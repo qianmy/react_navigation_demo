@@ -13,25 +13,18 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 
 
-type Props = {};
-export default class HomePage extends Component<Props> {
+export default class Page1 extends Component {
     render() {
         const {navigation} = this.props;
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    欢迎来到HomePage
+                    欢迎来到Page1
                 </Text>
                 <Button
-                    title='Go to Page1'
-                    onPress={() => {
-                        navigation.navigate('Page1')
-                    }}
-                />
-                <Button
-                    title='Go to Page2'
-                    onPress={() => {
-                        navigation.navigate('Page2')
+                    title='Go Back'
+                    onPress={()=>{
+                        navigation.goBack();
                     }}
                 />
             </View>
