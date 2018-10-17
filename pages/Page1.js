@@ -14,6 +14,7 @@ import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 
 
 export default class Page1 extends Component {
+
     render() {
         const {navigation} = this.props;
         return (
@@ -23,7 +24,7 @@ export default class Page1 extends Component {
                 </Text>
                 <Button
                     title='Go Back'
-                    onPress={()=>{
+                    onPress={() => {
                         navigation.goBack();
                     }}
                 />
