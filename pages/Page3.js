@@ -10,39 +10,31 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button} from 'react-native';
+import {Platform, StyleSheet, Text, View, Button, TextInput} from 'react-native';
 
 
-type Props = {};
-export default class HomePage extends Component<Props> {
-    static navigationOptions = {
-        title: 'Home',
-        headerBackTitle:'返回哈哈'
-    }
-
+export default class Page3 extends Component {
     render() {
-        const {navigation} = this.props;
+        const {navigation} = this.props,
+            {state, setParams} = navigation,
+            {params} = state;
+        const showText = params.mode === 'edit' ? '正在编辑' : '编辑完成';
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    欢迎来到HomePage
+                    欢迎来到Page3
                 </Text>
                 <Button
-                    title='Go to Page1'
+                    title='Go Back'
                     onPress={() => {
-                        navigation.navigate('Page1',{name:'动态的'})
+                        navigation.goBack();
                     }}
                 />
-                <Button
-                    title='Go to Page2'
-                    onPress={() => {
-                        navigation.navigate('Page2')
-                    }}
-                />
-                <Button
-                    title='Go to Page3'
-                    onPress={() => {
-                        navigation.navigate('Page3',{title:'Devio'})
+                <Text>{showText}</Text>
+                <TextInput
+                    style={styles.input}
+                    onChangeText={text => {
+                        setParams({title: text});
                     }}
                 />
             </View>
@@ -67,4 +59,11 @@ const styles = StyleSheet.create({
         color: '#333333',
         marginBottom: 5,
     },
+    input: {
+        height: 50,
+        width: 360,
+        borderWidth: 1,
+        marginTop: 20,
+        borderColor: 'black'
+    }
 });
