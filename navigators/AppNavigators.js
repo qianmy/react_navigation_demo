@@ -1,17 +1,62 @@
 /**
  * Created by qianmaoyin on 2018/10/15.
  */
-import {StackNavigator} from 'react-navigation'
+import {StackNavigator, TabNavigator} from 'react-navigation'
 import HomePage from '../pages/HomePage'
 import Page1 from '../pages/Page1'
 import Page2 from '../pages/Page2'
 import Page3 from '../pages/Page3'
 import React from 'react'
 import {Button} from 'react-native'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
+//创建一个常量AppTabNavigator
+export const AppTabNavigator = TabNavigator({
+    Page1: {
+        screen: Page1,
+        navigationOptions: {
+            tabBarLabel: 'Page1',
+            tabBarIcon: ({tintColor, focused}) => (
+                <MaterialCommunityIcons
+                    name={focused ? 'home' : 'home-outline'}
+                    size={26}
+                    style={{color: tintColor}}
+                />
+            )
+        }
+    },
+    Page2: {
+        screen: Page2,
+        navigationOptions: {
+            tabBarLabel: 'Page2',
+            tabBarIcon: ({tintColor, focused}) => (
+                <MaterialIcons
+                        name={focused ? 'people' : 'people-outline'}
+                    size={26}
+                    style={{color: tintColor}}
+                />
+            )
+        }
+    },
+    Page3: {
+        screen: Page3,
+        navigationOptions: {
+            tabBarLabel: 'Page3',
+            tabBarIcon: ({tintColor, focused}) => (
+                <MaterialIcons
+                    name={focused ? 'chat-bubble' : 'chat-bubble-outline'}
+                    size={26}
+                    style={{color: tintColor}}
+                />
+            )
+        }
+    },
 
-//创建一个常量AppStackNavigation
-export const AppStackNavigation = StackNavigator({
+})
+
+//创建一个常量AppStackNavigator
+export const AppStackNavigator = StackNavigator({
     HomePage: {
         screen: HomePage
     },
@@ -48,6 +93,12 @@ export const AppStackNavigation = StackNavigator({
                     />
                 )
             }
+        }
+    },
+    TabNav:{//把TabNavigator作为StackNavigator的一个页面
+        screen:AppTabNavigator,
+        navigationOptions:{
+            title:'This is TabNavigator'
         }
     }
 }, {

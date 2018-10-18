@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import {AppStackNavigation} from './navigators/AppNavigators';
+import {AppStackNavigator, AppTabNavigator} from './navigators/AppNavigators';
 
-export default AppStackNavigation;
+export default AppStackNavigator;
+//export default AppTabNavigator;
