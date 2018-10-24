@@ -51,6 +51,12 @@ export default class HomePage extends Component<Props> {
                         navigation.navigate('TabNav',{title:'Devio'})
                     }}
                 />
+                <Button
+                    title='Go to DrawerNavigator'
+                    onPress={() => {
+                        navigation.navigate('DrawerNav',{title:'Devio'})
+                    }}
+                />
             </View>
         );
     }

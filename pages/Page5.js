@@ -13,36 +13,39 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 
 
-export default class Page1 extends Component {
+export default class Page5 extends Component {
 
     render() {
         const {navigation} = this.props;
         return (
-            <View style={styles.container}>
+            <View style={{flex:1,backgroundColor:'#FFB29C'}}>
                 <Text style={styles.welcome}>
-                    欢迎来到Page1
+                    欢迎来到Page5
                 </Text>
                 <Button
-                    title='Go Back'
+                    title='Open Drawer'
                     onPress={() => {
-                        navigation.goBack();
+                        //navigation.navigate('DrawerOpen');//DrawerOpen，这个路由名代表抽屉导航打开，此方法已弃用
+                        navigation.openDrawer();
                     }}
                 />
                 <Button
-                    title='Go to Page2'
+                    title='Toggle Drawer'
                     onPress={() => {
-                        navigation.navigate('Page2');
+                        //navigation.navigate('DrawerToggle');//DrawerToggle，这个路由名代表抽屉导航打开/关闭状态切换
+                        navigation.toggleDrawer();
                     }}
                 />
                 <Button
-                    title='改变主题'
+                    title='Close Drawer'
                     onPress={() => {
-                        navigation.setParams({
-                            theme:{
-                                tintColor:'orange',
-                                updateTime:new Date().getTime()
-                            }
-                        });
+                        navigation.closeDrawer();
+                    }}
+                />
+                <Button
+                    title='Go to Page4'
+                    onPress={() => {
+                        navigation.navigate('Page4');
                     }}
                 />
             </View>
