@@ -1,7 +1,7 @@
 /**
  * Created by qianmaoyin on 2018/10/15.
  */
-import {StackNavigator, TabNavigator, TabBarBottom, DrawerNavigator} from 'react-navigation'
+import {StackNavigator, TabNavigator, TabBarBottom, DrawerNavigator, SafeAreaView, DrawerItems} from 'react-navigation'
 import HomePage from '../pages/HomePage'
 import Page1 from '../pages/Page1'
 import Page2 from '../pages/Page2'
@@ -9,7 +9,7 @@ import Page3 from '../pages/Page3'
 import Page4 from '../pages/Page4'
 import Page5 from '../pages/Page5'
 import React from 'react'
-import {Button, Platform} from 'react-native'
+import {Button, Platform, ScrollView} from 'react-native'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -64,6 +64,20 @@ export const DrawerNav = DrawerNavigator({
                 />
             )
         }
+    }
+}, {
+    initialRouteName:'Page4',
+    contentOptions:{
+      activeTintColor:'#e89'
+    },
+    contentComponent: (props) => {
+        return (
+            <ScrollView style={{backgroundColor: '#987666', flex: 1}}>
+                <SafeAreaView forceInset={{top: 'always', horizontal: 'never'}}>
+                    <DrawerItems {...props}/>
+                </SafeAreaView>
+            </ScrollView>
+        )
     }
 })
 
